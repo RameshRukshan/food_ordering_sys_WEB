@@ -202,14 +202,14 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link " href="employees.php">
+                                <a class="nav-link" href="employees.php">
                                     <i class="bi-person me-2"></i>
                                     Employees
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="add_new_employee.php">
+                                <a class="nav-link " href="add_new_employee.php">
                                     <i class="bi-person-plus me-2"></i>
                                     Add New Employee
                                 </a>
@@ -228,29 +228,47 @@
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        
+                        <h1 class="h2 mb-0">Edit Product</h1>
                     </div>
 
-                    <div class="row" style="padding: 20px;">
-                        <div class="col-lg-6 col-6 d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-4">Mullu Murukulu</h5>
-                                <img src="images/products/malu_murukku.jpg" alt="" style="width: 80%; height: 80%; object-fit: contain;">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-6 d-flex align-items-center">
-                            <div>
-                                <h5 class="mb-4">2500 LKR</h5>
-                                <p>Mullu Murukulu, crunchy and tasty snacks made from organic rice flour. The rugged texture gives an extra crunch to this snack, made from organic ingredients.</p>
-                                <p>Key Ingredients: Rice Flour, Cold Pressed Peanut Oil, Roasted Bengal Gram Flour, Salt, Butter, Red Chilli Powder, Sesame, Ajwain</p>
-                                <br>
-                                <div class="d-flex">
-                                    <button class="form-control me-3 btn btn-success"><a href="edit_product.php" style="color:white; font-size: 12px;">Edit Product</a></button>
-                                    <button class="form-control ms-2 btn btn-danger">Delete Product</button>
+                    <div class="row my-4">
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block bg-white">
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                        <h6 class="mb-4"></h6>
+
+                                        <form class="custom-form profile-form" action="#" method="post" role="form">
+                                            <label>Product Name</label>
+                                            <input class="form-control" type="text" name="product-name" id="product-name" placeholder="Cotton Cany">
+                                            <label>Product Description</label>
+                                            <input class="form-control" type="text" name="product-description" id="product-description" placeholder="blah blah balah">
+                                            <label>Product Price</label>
+                                            <input class="form-control" type="text" name="price" id="price" placeholder="3000 LKR">
+                                            <label>Product Image</label>
+                                            <div class="input-group mb-1">
+                                                <img src="images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
+
+                                                <input type="file" class="form-control" id="inputGroupFile02">
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <button type="button" class="form-control me-3">
+                                                    Discard
+                                                </button>
+                                                <button type="submit" class="form-control ms-2">
+                                                    Update Product
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    
                                 </div>
-                                <br>
                             </div>
                         </div>
+
+                        
                     </div>
                     
 
