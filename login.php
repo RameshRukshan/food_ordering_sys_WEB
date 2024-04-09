@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -33,17 +34,31 @@
                             <div class="custom-block bg-white">
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                       
+                                    <h5 class="navbar-brand"  style="display: flex; justify-content: center; font-size: 25px;">
+                                            <span>Organic</span><span style="color: lightseagreen;">Snacks</span></h5>
+                                            <hr><br>
                                         <h6 class="mb-4">User Login</h6>
 
                                             <?php
+                                                include ("db.php");
+                                                
                                                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $username = $_POST["user-name"];
                                                     $password = $_POST["pass"];
+                                                    $SQL = "SELECT * FROM os_users WHERE user_name = ? AND password = ?";
+                                                    $stmt = $conn->prepare($SQL);
+                                                    $stmt->bind_param("ss", $username, $password);
+                                                    $stmt->execute();
+                                                    $result = $stmt->get_result();
 
-                                                    if ($username == "admin" && $password == "123") {
+                                                  
+                                                    if ($result->num_rows == 1) {
+                                                        
                                                         header("Location: index.html");
                                                         exit;
                                                     } else {
+                                
                                                         echo '<div class="alert alert-danger" role="alert">
                                                                 Invalid username or password.
                                                             </div>';
