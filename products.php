@@ -228,43 +228,84 @@
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <small class="text-muted">Hello Thomas!</small>
-                        <h1 class="h2 mb-0">Welcome back to admin dashboard</h1>
+                        <h1 class="h2 mb-0">Products</h1>
                     </div>
 
                     <div class="row my-4">
                         <div class="col-lg-5 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                 <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
+                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
 
-                                    <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a>
+                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
                                 </div>
 
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>Name:</strong>
-
-                                    <span>Thomas Edison</span>
-                                </p>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>Email:</strong>
-                                    
+                                <div class="custom-block-profile-image-wrap mb-4">
                                     <a href="#">
-                                        thomas@site.com
-                                    </a>
-                                </p>
+                                    <p class="d-flex flex-wrap mb-2 text-center">
+                                        <strong>Mullu Murukulu</strong>
+                                        <hr>
+                                        2400 LKR
+                                    </p></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
+                                <div class="custom-block-profile-image-wrap mb-4">
+                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
 
-                                <p class="d-flex flex-wrap mb-0">
-                                    <strong>Phone:</strong>
+                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
+                                </div>
 
+                                <div class="custom-block-profile-image-wrap mb-4">
                                     <a href="#">
-                                        (60) 12 345 6789
-                                    </a>
-                                </p>
+                                    <p class="d-flex flex-wrap mb-2 text-center">
+                                        <strong>Mullu Murukulu</strong>
+                                        <hr>
+                                        2400 LKR
+                                    </p></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
+                                <div class="custom-block-profile-image-wrap mb-4">
+                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+
+                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
+                                </div>
+
+                                <div class="custom-block-profile-image-wrap mb-4">
+                                    <a href="#">
+                                    <p class="d-flex flex-wrap mb-2 text-center">
+                                        <strong>Mullu Murukulu</strong>
+                                        <hr>
+                                        2400 LKR
+                                    </p></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
+                                <div class="custom-block-profile-image-wrap mb-4">
+                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+
+                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
+                                </div>
+
+                                <div class="custom-block-profile-image-wrap mb-4">
+                                    <a href="#">
+                                    <p class="d-flex flex-wrap mb-2 text-center">
+                                        <strong>Mullu Murukulu</strong>
+                                        <hr>
+                                        2400 LKR
+                                    </p></a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
 
                     <footer class="site-footer" style="position: fixed; bottom: 0; width: 100%;">
                         <div class="container">
