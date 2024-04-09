@@ -202,14 +202,14 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link active" href="employees.php">
+                                <a class="nav-link" href="employees.php">
                                     <i class="bi-person me-2"></i>
                                     Employees
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="add_new_employee.php">
+                                <a class="nav-link active" href="add_new_employee.php">
                                     <i class="bi-person-plus me-2"></i>
                                     Add New Employee
                                 </a>
@@ -228,84 +228,46 @@
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <h1 class="h2 mb-0">Employees</h1>
+                        <h1 class="h2 mb-0">Add New Employee</h1>
                     </div>
 
                     <div class="row my-4">
-                        <div class="col-lg-12 col-12">
+                        <div class="col-lg-7 col-12">
                             <div class="custom-block bg-white">
-                                <h5 class="mb-4">All Employees</h5>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                        <h6 class="mb-4"></h6>
 
-                                <div class="table-responsive">
-                                    <table class="account-table table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Employee Name</th>
+                                        <form class="custom-form profile-form" action="#" method="post" role="form">
+                                            <label>Employee Name</label>
+                                            <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="John Doe">
+                                            <label>Mobile NUmber</label>
+                                            <input class="form-control" type="text" name="profile-mobile" id="profile-mobile" placeholder="0718967176">
+                                            <label>Email Address</label>
+                                            <input class="form-control" type="email" name="profile-email" id="profile-email" placeholder="Johndoe@gmail.com">
+                                            <hr>
+                                            <label>Username</label>
+                                            <input class="form-control" type="text" name="profile-username" id="profile-username" placeholder="john_doe">
+                                            <label>Password</label>
+                                            <input class="form-control" type="password" name="profile-pass" id="profile-pass" placeholder="*****">
 
-                                                <th scope="col">Phone Number</th>
+                                            <div class="d-flex">
+                                                <button type="button" class="form-control me-3">
+                                                    Reset
+                                                </button>
+                                                <button type="submit" class="form-control ms-2">
+                                                    Add Employee
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
 
-                                                <th scope="col">Email Address</th>
-
-                                                <th scope="col">Username</th>
-
-                                                <th scope="col">Access Label</th>
-
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <td scope="row">Admin</td>
-
-                                                <td scope="row">0110000000</td>
-
-                                                <td scope="row">admin@sys.lk</td>
-
-                                                <td scope="row">admin</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Administrator
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    
                                 </div>
-
-                                <nav aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-center mb-0">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Previous">
-                                                    <span aria-hidden="true">Prev</span>
-                                                </a>
-                                            </li>
-
-                                            <li class="page-item active" aria-current="page">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                            
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">3</a>
-                                            </li>
-
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">4</a>
-                                            </li>
-                                            
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
-                                                    <span aria-hidden="true">Next</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
                             </div>
                         </div>
+
+                        
                     </div>
                     
 
