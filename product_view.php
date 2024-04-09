@@ -240,8 +240,15 @@
                         </div>
                         <div class="col-lg-6 col-6 d-flex align-items-center">
                             <div>
+                                <h5 class="mb-4">2500 LKR</h5>
                                 <p>Mullu Murukulu, crunchy and tasty snacks made from organic rice flour. The rugged texture gives an extra crunch to this snack, made from organic ingredients.</p>
                                 <p>Key Ingredients: Rice Flour, Cold Pressed Peanut Oil, Roasted Bengal Gram Flour, Salt, Butter, Red Chilli Powder, Sesame, Ajwain</p>
+                                <br>
+                                <div class="d-flex">
+                                    <button class="form-control me-3 btn btn-success">Edit Product</button>
+                                    <button class="form-control ms-2 btn btn-danger">Delete Product</button>
+                                </div>
+                                <br>
                             </div>
                         </div>
                     </div>

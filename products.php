@@ -232,7 +232,7 @@
                     </div>
 
                     <div class="row my-4">
-                        <div class="col-lg-5 col-12">
+                        <div class="col-lg-3 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                 <div class="custom-block-profile-image-wrap mb-4">
                                     <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
@@ -241,7 +241,7 @@
                                 </div>
 
                                 <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="#">
+                                    <a href="product_view.php">
                                     <p class="d-flex flex-wrap mb-2 text-center">
                                         <strong>Mullu Murukulu</strong>
                                         <hr>
@@ -250,7 +250,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5 col-12">
+                        <div class="col-lg-3 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                 <div class="custom-block-profile-image-wrap mb-4">
                                     <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
@@ -259,7 +259,7 @@
                                 </div>
 
                                 <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="#">
+                                    <a href="product_view.php">
                                     <p class="d-flex flex-wrap mb-2 text-center">
                                         <strong>Mullu Murukulu</strong>
                                         <hr>
@@ -268,7 +268,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5 col-12">
+                        <div class="col-lg-3 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                 <div class="custom-block-profile-image-wrap mb-4">
                                     <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
@@ -277,7 +277,7 @@
                                 </div>
 
                                 <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="#">
+                                    <a href="product_view.php">
                                     <p class="d-flex flex-wrap mb-2 text-center">
                                         <strong>Mullu Murukulu</strong>
                                         <hr>
@@ -286,7 +286,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5 col-12">
+                        <div class="col-lg-3 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                 <div class="custom-block-profile-image-wrap mb-4">
                                     <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
@@ -295,7 +295,7 @@
                                 </div>
 
                                 <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="#">
+                                    <a href="product_view.php">
                                     <p class="d-flex flex-wrap mb-2 text-center">
                                         <strong>Mullu Murukulu</strong>
                                         <hr>
