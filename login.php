@@ -56,6 +56,7 @@
                                                     if ($result->num_rows == 1) {
                                                         
                                                         header("Location: index.html");
+
                                                         exit;
                                                     } else {
                                 
