@@ -263,9 +263,10 @@
 
                                                 <td scope="row">admin</td>
 
-                                                <td class="badge text-bg-danger" scope="row">
-                                                    <span class="me-1">-</span>
-                                                    Admin
+                                                <td scope="row">
+                                                    <span class="badge text-bg-danger">
+                                                        Administrator
+                                                    </span>
                                                 </td>
                                             </tr>
                                         </tbody>
