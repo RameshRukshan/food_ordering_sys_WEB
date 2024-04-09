@@ -41,7 +41,7 @@
                                                     $password = $_POST["pass"];
 
                                                     if ($username == "admin" && $password == "123") {
-                                                        header("Location: index.html");
+                                                        header("Location: index.php");
                                                         exit;
                                                     } else {
                                                         echo '<div class="alert alert-danger" role="alert">
