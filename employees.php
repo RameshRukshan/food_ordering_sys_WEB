@@ -240,44 +240,32 @@
                                     <table class="account-table table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Date</th>
+                                                <th scope="col">Employee Name</th>
 
-                                                <th scope="col">Time</th>
+                                                <th scope="col">Phone Number</th>
 
-                                                <th scope="col">Description</th>
+                                                <th scope="col">Email Address</th>
 
-                                                <th scope="col">Payment Type</th>
+                                                <th scope="col">Username</th>
 
-                                                <th scope="col">Amount</th>
-
-                                                <th scope="col">Balance</th>
-
-                                                <th scope="col">Status</th>
+                                                <th scope="col">Access Label</th>
 
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <tr>
-                                                <td scope="row">July 5, 2023</td>
+                                                <td scope="row">Admin</td>
 
-                                                <td scope="row">10:00 PM</td>
+                                                <td scope="row">0110000000</td>
 
-                                                <td scope="row">Shopping</td>
+                                                <td scope="row">admin@sys.lk</td>
 
-                                                <td scope="row">C2C Transfer</td>
+                                                <td scope="row">admin</td>
 
-                                                <td class="text-danger" scope="row">
+                                                <td class="badge text-bg-danger" scope="row">
                                                     <span class="me-1">-</span>
-                                                    $100.00
-                                                </td>
-
-                                                <td scope="row">$5,500.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Pending
-                                                    </span>
+                                                    Admin
                                                 </td>
                                             </tr>
                                         </tbody>
