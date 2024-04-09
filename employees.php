@@ -250,6 +250,8 @@
 
                                                 <th scope="col">Access Label</th>
 
+                                                <th scope="col"></th>
+
                                             </tr>
                                         </thead>
 
@@ -263,11 +265,15 @@
 
                                                 <td scope="row">admin</td>
 
+                                                <td scope="row">Administrator</td>
+
                                                 <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Administrator
-                                                    </span>
+                                                    <div class="d-flex">
+                                                        <a href="edit_employee.php"><span class="badge text-bg-success"> <i class="bi-pencil me-2"></i></span></a>&nbsp;
+                                                        <a href="#"> <span class="badge text-bg-danger"> <i class="bi-trash me-2"></i></span> </a>  
+                                                    </div>
                                                 </td>
+
                                             </tr>
                                         </tbody>
                                     </table>
