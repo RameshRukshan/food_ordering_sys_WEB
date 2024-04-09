@@ -31,7 +31,7 @@
             </button>
 
             <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
-                <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+                
             </form>
 
             <div class="navbar-nav me-lg-2">
@@ -228,8 +228,8 @@
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <small class="text-muted">Hello Thomas!</small>
-                        <h1 class="h2 mb-0">Welcome back to admin dashboard</h1>
+                        <span class="text-muted" style="font-size: 22px;">Hello Thilina!</span>
+                        <h1 class="h2 mb-0">Welcome back to Admin dashboard!</h1>
                     </div>
 
                     <div class="row my-4">
@@ -239,9 +239,8 @@
 
                                     <div class="col-lg-3 col-12 mb-4 mb-lg-0">
                                         <div class="custom-block-profile-image-wrap">
-                                            <img src="images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
-
-                                            <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a>
+                                            <img src="images/account.jpg" class="custom-block-profile-image img-fluid" alt="">
+                                            <a href="#" class="bi-pencil-square custom-block-edit-icon"></a>
                                         </div>
                                     </div>
 
@@ -249,36 +248,32 @@
                                         <p class="d-flex flex-wrap mb-2">
                                             <strong>Name:</strong>
 
-                                            <span>Thomas Edison</span>
+                                            <span>Thilina Pathirana</span>
                                         </p>
 
                                         <p class="d-flex flex-wrap mb-2">
                                             <strong>Email:</strong>
                                             
-                                            <a href="#">
-                                                thomas@site.com
-                                            </a>
+                                            <span>
+                                                thilina@gmail.com
+                                            </span>
+                                        </p>
+
+                                        <p class="d-flex flex-wrap">
+                                            <strong>Username:</strong>
+
+                                            <span>Thilina350</span>
                                         </p>
 
                                         <p class="d-flex flex-wrap mb-2">
                                             <strong>Phone:</strong>
 
-                                            <a href="#">
-                                                (60) 12 345 6789
-                                            </a>
+                                            <span>
+                                                0703983946
+                                            </span>
                                         </p>
 
-                                        <p class="d-flex flex-wrap mb-2">
-                                            <strong>Birthday:</strong>
 
-                                            <span>March 5, 1992</span>
-                                        </p>
-
-                                        <p class="d-flex flex-wrap">
-                                            <strong>Address:</strong>
-
-                                            <span>551 Swanston Street, Melbourne</span>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -308,85 +303,8 @@
         <script src="js/apexcharts.min.js"></script>
         <script src="js/custom.js"></script>
 
-        <script type="text/javascript">
-            var options = {
-              series: [13, 43, 22],
-              chart: {
-              width: 380,
-              type: 'pie',
-            },
-            labels: ['Balance', 'Expense', 'Credit Loan',],
-            responsive: [{
-              breakpoint: 480,
-              options: {
-                chart: {
-                  width: 200
-                },
-                legend: {
-                  position: 'bottom'
-                }
-              }
-            }]
-            };
-
-            var chart = new ApexCharts(document.querySelector("#pie-chart"), options);
-            chart.render();
-        </script>
-
-        <script type="text/javascript">
-            var options = {
-              series: [{
-              name: 'Income',
-              data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-            }, {
-              name: 'Expense',
-              data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-            }, {
-              name: 'Transfer',
-              data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
-            }],
-              chart: {
-              type: 'bar',
-              height: 350
-            },
-            plotOptions: {
-              bar: {
-                horizontal: false,
-                columnWidth: '55%',
-                endingShape: 'rounded'
-              },
-            },
-            dataLabels: {
-              enabled: false
-            },
-            stroke: {
-              show: true,
-              width: 2,
-              colors: ['transparent']
-            },
-            xaxis: {
-              categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-            },
-            yaxis: {
-              title: {
-                text: '$ (thousands)'
-              }
-            },
-            fill: {
-              opacity: 1
-            },
-            tooltip: {
-              y: {
-                formatter: function (val) {
-                  return "$ " + val + " thousands"
-                }
-              }
-            }
-            };
-
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
-            chart.render();
-        </script>
+        
+            
 
     </body>
 </html>
