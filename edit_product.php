@@ -238,25 +238,65 @@
                                     <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                                         <h6 class="mb-4"></h6>
 
-                                        <form class="custom-form profile-form" action="#" method="post" role="form">
+                                        <?php
+                                        include ("db.php");
+
+                                        if (isset($_GET["id"])) {
+                                            $id = $_GET["id"];
+                                            $sql = "SELECT * FROM products WHERE id=$id";
+                                            $result = $conn->query($sql);
+
+                                            if ($result->num_rows > 0) {
+                                                $row = $result->fetch_assoc();
+                                            } else {
+                                                echo "No products found.";
+                                            }
+                                        }
+
+                                        if(isset($_POST["update"])) {
+                                            $name = $_POST["product-name"];
+                                            $description = $_POST["product-description"];
+                                            $price = $_POST["price"];
+                                            $image = $_FILES["product-image"]["name"];
+                                            $tmp_name = $_FILES["product-image"]["tmp_name"];
+
+                                            $sql = "UPDATE products SET name='$name', description='$description', price=$price, image='$image' WHERE id=$id";
+                                            $conn->query($sql);
+
+                                            move_uploaded_file($tmp_name, "images/profile/$image");
+                                            header("Location: edit_product.php?id=$id");
+                                            $_SESSION["status"] = "Product updated successfully.";
+                                            exit();
+                                        }
+
+                                        $conn->close();
+                                        ?>
+
+                                        <?php if (isset($_SESSION["status"])):?>
+                                            <div class="alert alert-success" role="alert">
+                                                <?php echo $_SESSION["status"];?>
+                                            </div>
+                                            <?php unset($_SESSION["status"]);?>
+                                        <?php endif;?>
+
+
+                                        <form class="custom-form profile-form" action="#" method="post" role="form" enctype="multipart/form-data">
                                             <label>Product Name</label>
-                                            <input class="form-control" type="text" name="product-name" id="product-name" placeholder="Cotton Cany">
+                                            <input class="form-control" type="text" name="product-name" id="product-name" value="<?php echo $row["name"];?>" required>
                                             <label>Product Description</label>
-                                            <input class="form-control" type="text" name="product-description" id="product-description" placeholder="blah blah balah">
+                                            <input class="form-control" type="text" name="product-description" id="product-description" value="<?php echo $row["description"];?>" required>
                                             <label>Product Price</label>
-                                            <input class="form-control" type="text" name="price" id="price" placeholder="3000 LKR">
+                                            <input class="form-control" type="text" name="price" id="price" value="<?php echo $row["price"];?>" required>
                                             <label>Product Image</label>
                                             <div class="input-group mb-1">
-                                                <img src="images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
-
-                                                <input type="file" class="form-control" id="inputGroupFile02">
+                                                <img src="<?php echo $row["image"];?>" class="profile-image img-fluid" alt="">
+                                                <input type="file" class="form-control" name="product-image" id="product-image" required>
                                             </div>
-
                                             <div class="d-flex">
                                                 <button type="button" class="form-control me-3">
                                                     Discard
                                                 </button>
-                                                <button type="submit" class="form-control ms-2">
+                                                <button type="submit" class="form-control ms-2" name="update">
                                                     Update Product
                                                 </button>
                                             </div>

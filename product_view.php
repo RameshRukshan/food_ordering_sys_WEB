@@ -231,22 +231,49 @@
                         
                     </div>
 
+                    <?php
+                    include ("db.php");
+
+                    if (isset($_GET["id"])) {
+                        $id = $_GET["id"];
+                        $sql = "SELECT * FROM products WHERE id=$id";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            $row = $result->fetch_assoc();
+                        } else {
+                            echo "No products found.";
+                        }
+                    } else {
+                        echo "No ID provided.";
+                    }
+
+                    if(isset($_GET["delete_id"])) {
+                        $delete_id = $_GET["delete_id"];
+                        $sql = "DELETE FROM products WHERE id=$delete_id";
+                        $conn->query($sql);
+                        header("Location: products.php");
+                        exit();
+                    }
+
+                    $conn->close();
+                    ?>
+
                     <div class="row" style="padding: 20px;">
                         <div class="col-lg-6 col-6 d-flex align-items-center">
                             <div>
-                                <h5 class="mb-4">Mullu Murukulu</h5>
-                                <img src="images/products/malu_murukku.jpg" alt="" style="width: 80%; height: 80%; object-fit: contain;">
+                                <h5 class="mb-4"><?php echo $row["name"];?></h5>
+                                <img src="<?php echo $row["image"];?>" alt="" style="width: 80%; height: 80%; object-fit: contain;">
                             </div>
                         </div>
                         <div class="col-lg-6 col-6 d-flex align-items-center">
                             <div>
-                                <h5 class="mb-4">2500 LKR</h5>
-                                <p>Mullu Murukulu, crunchy and tasty snacks made from organic rice flour. The rugged texture gives an extra crunch to this snack, made from organic ingredients.</p>
-                                <p>Key Ingredients: Rice Flour, Cold Pressed Peanut Oil, Roasted Bengal Gram Flour, Salt, Butter, Red Chilli Powder, Sesame, Ajwain</p>
+                                <h5 class="mb-4"><?php echo $row["price"];?> LKR</h5>
+                                <p><?php echo $row["description"];?></p>
                                 <br>
                                 <div class="d-flex">
-                                    <button class="form-control me-3 btn btn-success"><a href="edit_product.php" style="color:white; font-size: 12px;">Edit Product</a></button>
-                                    <button class="form-control ms-2 btn btn-danger">Delete Product</button>
+                                    <button class="form-control me-3 btn btn-success"><a href="edit_product.php?id=<?php echo $row["id"];?>" style="color:white; font-size: 12px;">Edit Product</a></button>
+                                    <button class="form-control ms-2 btn btn-danger" id="del-p" name="del-p" onclick="return confirm('Are you sure you want to delete this product?')"><a href="?delete_id=<?php echo $row["id"];?>" style="color:white; font-size: 12px;">Delete Product</a></button>
                                 </div>
                                 <br>
                             </div>
@@ -276,86 +303,6 @@
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/apexcharts.min.js"></script>
         <script src="js/custom.js"></script>
-
-        <script type="text/javascript">
-            var options = {
-              series: [13, 43, 22],
-              chart: {
-              width: 380,
-              type: 'pie',
-            },
-            labels: ['Balance', 'Expense', 'Credit Loan',],
-            responsive: [{
-              breakpoint: 480,
-              options: {
-                chart: {
-                  width: 200
-                },
-                legend: {
-                  position: 'bottom'
-                }
-              }
-            }]
-            };
-
-            var chart = new ApexCharts(document.querySelector("#pie-chart"), options);
-            chart.render();
-        </script>
-
-        <script type="text/javascript">
-            var options = {
-              series: [{
-              name: 'Income',
-              data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-            }, {
-              name: 'Expense',
-              data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-            }, {
-              name: 'Transfer',
-              data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
-            }],
-              chart: {
-              type: 'bar',
-              height: 350
-            },
-            plotOptions: {
-              bar: {
-                horizontal: false,
-                columnWidth: '55%',
-                endingShape: 'rounded'
-              },
-            },
-            dataLabels: {
-              enabled: false
-            },
-            stroke: {
-              show: true,
-              width: 2,
-              colors: ['transparent']
-            },
-            xaxis: {
-              categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-            },
-            yaxis: {
-              title: {
-                text: '$ (thousands)'
-              }
-            },
-            fill: {
-              opacity: 1
-            },
-            tooltip: {
-              y: {
-                formatter: function (val) {
-                  return "$ " + val + " thousands"
-                }
-              }
-            }
-            };
-
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
-            chart.render();
-        </script>
 
     </body>
 </html>

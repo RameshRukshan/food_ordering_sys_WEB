@@ -238,7 +238,40 @@
                                     <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                                         <h6 class="mb-4"></h6>
 
-                                        <form class="custom-form profile-form" action="#" method="post" role="form">
+                                        <?php
+                                        include ("db.php");
+
+                                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                            $productName = $_POST["product-name"];
+                                            $productDescription = $_POST["product-description"];
+                                            $productPrice = $_POST["price"];
+
+                                            // Handle file upload
+                                            $target_dir = "images/products/";
+                                            $target_file = $target_dir. basename($_FILES["product-image"]["name"]);
+                                            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                                            $check = getimagesize($_FILES["product-image"]["tmp_name"]);
+                                            if ($check!== false) {
+                                                move_uploaded_file($_FILES["product-image"]["tmp_name"], $target_file);
+                                            }
+
+                                            // Insert data into database
+                                            $sql = "INSERT INTO products (name, description, price, image) VALUES (?,?,?,?)";
+                                            $stmt = $conn->prepare($sql);
+                                            $stmt->bind_param("ssdi", $productName, $productDescription, $productPrice, $target_file);
+                                            $result = $stmt->execute();
+                                            $stmt->close();
+                                            $conn->close();
+
+                                            if ($result) {
+                                                echo "<div class='alert alert-success'>Product added successfully!</div>";
+                                            } else {
+                                                echo "<div class'alert alert-danger'>Error adding product. Please try again later.</div>";
+                                            }
+                                        }
+                                        ?>
+
+                                        <form class="custom-form profile-form" action="#" method="post" enctype="multipart/form-data" role="form">
                                             <label>Product Name</label>
                                             <input class="form-control" type="text" name="product-name" id="product-name" placeholder="Cotton Cany">
                                             <label>Product Description</label>
@@ -247,9 +280,8 @@
                                             <input class="form-control" type="text" name="price" id="price" placeholder="3000 LKR">
                                             <label>Product Image</label>
                                             <div class="input-group mb-1">
-                                                <img src="images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
-
-                                                <input type="file" class="form-control" id="inputGroupFile02">
+                                                <img src="<?php echo $target_file;?>" class="profile-image img-fluid" alt="" id="preview-image">
+                                                <input type="file" class="form-control" id="inputGroupFile02" name="product-image" onchange="previewFile()">
                                             </div>
 
                                             <div class="d-flex">
@@ -261,9 +293,26 @@
                                                 </button>
                                             </div>
                                         </form>
-                                    </div>
+                                        <script>
 
-                                    
+                                            function previewFile() {
+                                                var preview = document.getElementById('preview-image');
+                                                var file = document.getElementById('inputGroupFile02').files[0];
+                                                var reader = new FileReader();
+
+                                                reader.onloadend = function () {
+                                                    preview.src = reader.result;
+                                                }
+
+                                                if (file) {
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    preview.src = "";
+                                                }
+                                            }
+
+                                        </script>
+                                    </div>
                                 </div>
                             </div>
                         </div>

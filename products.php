@@ -117,78 +117,40 @@
                     </div>
 
                     <div class="row my-4">
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                    <?php
+                        include ("db.php");
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                        $sql = "SELECT * FROM products";
+                        $result = $conn->query($sql);
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                echo "<div class='col-lg-3 col-12'>
+                                            <div class='custom-block custom-block-profile-front custom-block-profile text-center bg-white'>
+                                                <div class='custom-block-profile-image-wrap mb-4'>
+                                                    <img src='".$row["image"]."' class='e img-fluid' alt=''>
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                                                    <a href='edit_product.php?id=".$row["id"]."' class='bi-pencil-square custom-block-edit-icon'></a>
+                                                </div>
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                                                <div class='custom-block-profile-image-wrap mb-4'>
+                                                    <a href='product_view.php?id=".$row["id"]."'>
+                                                    <p class='d-flex flex-wrap mb-2 text-center'>
+                                                        <strong>".$row["name"]."</strong>
+                                                        <hr>
+                                                        ".$row["price"]." LKR
+                                                    </p></a>
+                                                </div>
+                                            </div>
+                                        </div>";
+                            }
+                        } else {
+                            echo "<div class'alert alert-danger'>No products found.</div>";
+                        }
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
-
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
-
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
+                        $conn->close();
+                        ?>
                     </div>
                     
 
