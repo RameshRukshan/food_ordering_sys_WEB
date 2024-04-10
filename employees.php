@@ -108,6 +108,7 @@
                 </nav>
             <!-- Side Navigation menu section-->
 
+            
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
                         <h1 class="h2 mb-0">Employees</h1>
@@ -129,17 +130,24 @@
 
                                             </tr>
                                         </thead>
+                                        <?php include ("db.php");
+                                         $SQL1="select emp_id, name from os_employees";
+                                         $exeSQL1=mysqli_query($conn, $SQL1) or die (mysqli_error($conn));
+                                         
+                                        echo "<tbody>";
+                                        while ($arrayp=mysqli_fetch_array($exeSQL1)){
+                                           echo "<tr>";
+                                                echo "<td scope='row'>".$arrayp['emp_id']."</td>";
 
-                                        <tbody>
-                                            <tr>
-                                                <td scope="row">Admin</td>
+                                                echo "<td scope='row'><div class='d-flex'>";
+                                                        echo "<a href='edit_employee.php'><span>".$arrayp['name']."</span></a>&nbsp";
+                                                echo "</div></td>";
 
-                                                <td scope="row"><div class="d-flex">
-                                                        <a href="edit_employee.php" text='0110000000'><span>0110000000</span></a>&nbsp
-                                                    </div></td>
-
-                                            </tr>
-                                        </tbody>
+                                            echo "</tr>";
+                                        }
+                                        echo "</tbody>";
+                                         
+                                        ?>
                                     </table>
                                 </div>
                             </div>
