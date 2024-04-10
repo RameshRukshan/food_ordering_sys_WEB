@@ -140,7 +140,7 @@
                                                 echo "<td scope='row'>".$arrayp['emp_id']."</td>";
 
                                                 echo "<td scope='row'><div class='d-flex'>";
-                                                        echo "<a href='edit_employee.php'><span>".$arrayp['name']."</span></a>&nbsp";
+                                                        echo "<a href='view_employee.php?emp_id=".$arrayp['emp_id']."'><span>".$arrayp['name']."</span></a>&nbsp";
                                                 echo "</div></td>";
 
                                             echo "</tr>";

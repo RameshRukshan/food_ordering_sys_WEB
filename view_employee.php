@@ -33,6 +33,7 @@
             <div class="navbar-nav me-lg-2">
                 <div class="nav-item text-nowrap d-flex align-items-center">
                     
+                        
 
                     <!-- User Profile section-->
 
@@ -79,21 +80,21 @@
                             </li>
 
                             <li class="nav-item ">
-                                <a class="nav-link active" href="products.php">
+                                <a class="nav-link " href="products.php">
                                     <i class="bi-box-seam me-2"></i>
                                     Products
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="employees.php">
+                                <a class="nav-link active" href="employees.php">
                                     <i class="bi-person me-2"></i>
                                     Employees
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="add_new_employee.php">
+                                <a class="nav-link " href="add_new_employee.php">
                                     <i class="bi-person-plus me-2"></i>
                                     Add New Employee
                                 </a>
@@ -111,87 +112,69 @@
             <!-- Side Navigation menu section-->
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                    <div class="title-group mb-3 d-flex">
-                        <h1 class="h2 mb-0">Products</h1>
-                        <button class="form-control me-3 btn btn-success" style="width: fit-content; margin-left: auto;"> <a href="add_new_product.php" style="color:white; font-size: 12px;"> Add New Product </a></button>
+                    <div class="title-group mb-3">
+                        <h1 class="h2 mb-0">Employee Details</h1>
                     </div>
 
                     <div class="row my-4">
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block custom-form profile-form bg-white">
+                                <div class="row">
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                                    <div class="col-lg-3 col-12 mb-4 mb-lg-0">
+                                        <div class="custom-block-profile-image-wrap">
+                                            <img src="images/account.jpg" class="custom-block-profile-image img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                    <?php
+                                    
+                                    include("db.php");
+                                    $empid=$_GET['emp_id'];
+                                    $SQL2='SELECT a.EMP_ID, a.NAME, a.EMAIL, a.PHONE, b.USER_NAME 
+                                            FROM os_employees a LEFT JOIN os_users b ON a.USER_ID = b.USER_ID WHERE  a.EMP_ID ='.$empid;
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                                    $exeSQL2=mysqli_query($conn, $SQL2) or die (mysqli_error($conn));
+                                    $row = mysqli_fetch_array($exeSQL2);
+                                    
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                                   echo  '<div class="col-lg-9 col-12">';
+                                    echo    '<p class="d-flex flex-wrap mb-3">';
+                                            echo '<strong>Name:</strong>';
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                                            echo '<span>'.$row['NAME'].'</span> </p>';
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                                       
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                                            echo    '<p class="d-flex flex-wrap mb-3">';
+                                            echo '<strong>E-mail:</strong>';
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                                            echo '<span>'.$row['EMAIL'].'</span> </p>';
+                                       
+                                        echo    '<p class="d-flex flex-wrap mb-3">';
+                                            echo '<strong>Username:</strong>';
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
+                                            echo '<span>'.$row['USER_NAME'].'</span> </p>';
+                                        
+                                        echo    '<p class="d-flex flex-wrap mb-3">';
+                                            echo '<strong>Phone:</strong>';
+
+                                            echo '<span>'.$row['PHONE'].'</span> </p>';
+
+                                            
+                                    echo '</div>';
+                                    
+                                    echo '<div class="d-flex" style="margin-top: 5%;">';
+                                    echo "<a href=update_employee.php?emp_id=".$empid.">";
+                                                echo '<button type="button" class="form-control ms-2">';
+                                                    echo 'Update Details';
+                                                echo '</button>';
+                                    echo '</a>';
+                                            echo '</div>';
+                                            ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-
                     <footer class="site-footer" style="position: fixed; bottom: 0; width: 100%;">
                         <div class="container">
                             <div class="row">
@@ -214,6 +197,86 @@
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/apexcharts.min.js"></script>
         <script src="js/custom.js"></script>
+
+        <script type="text/javascript">
+            var options = {
+              series: [13, 43, 22],
+              chart: {
+              width: 380,
+              type: 'pie',
+            },
+            labels: ['Balance', 'Expense', 'Credit Loan',],
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 200
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+            };
+
+            var chart = new ApexCharts(document.querySelector("#pie-chart"), options);
+            chart.render();
+        </script>
+
+        <script type="text/javascript">
+            var options = {
+              series: [{
+              name: 'Income',
+              data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+            }, {
+              name: 'Expense',
+              data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+            }, {
+              name: 'Transfer',
+              data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+            }],
+              chart: {
+              type: 'bar',
+              height: 350
+            },
+            plotOptions: {
+              bar: {
+                horizontal: false,
+                columnWidth: '55%',
+                endingShape: 'rounded'
+              },
+            },
+            dataLabels: {
+              enabled: false
+            },
+            stroke: {
+              show: true,
+              width: 2,
+              colors: ['transparent']
+            },
+            xaxis: {
+              categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+            },
+            yaxis: {
+              title: {
+                text: '$ (thousands)'
+              }
+            },
+            fill: {
+              opacity: 1
+            },
+            tooltip: {
+              y: {
+                formatter: function (val) {
+                  return "$ " + val + " thousands"
+                }
+              }
+            }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        </script>
 
     </body>
 </html>

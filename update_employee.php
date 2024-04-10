@@ -33,6 +33,7 @@
             <div class="navbar-nav me-lg-2">
                 <div class="nav-item text-nowrap d-flex align-items-center">
                     
+                        
 
                     <!-- User Profile section-->
 
@@ -79,21 +80,21 @@
                             </li>
 
                             <li class="nav-item ">
-                                <a class="nav-link active" href="products.php">
+                                <a class="nav-link " href="products.php">
                                     <i class="bi-box-seam me-2"></i>
                                     Products
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="employees.php">
+                                <a class="nav-link active" href="employees.php">
                                     <i class="bi-person me-2"></i>
                                     Employees
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="add_new_employee.php">
+                                <a class="nav-link " href="add_new_employee.php">
                                     <i class="bi-person-plus me-2"></i>
                                     Add New Employee
                                 </a>
@@ -111,84 +112,57 @@
             <!-- Side Navigation menu section-->
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                    <div class="title-group mb-3 d-flex">
-                        <h1 class="h2 mb-0">Products</h1>
-                        <button class="form-control me-3 btn btn-success" style="width: fit-content; margin-left: auto;"> <a href="add_new_product.php" style="color:white; font-size: 12px;"> Add New Product </a></button>
+                    <div class="title-group mb-3">
+                        <h1 class="h2 mb-0">Update Employee</h1>
                     </div>
 
+
                     <div class="row my-4">
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block bg-white">
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                        <h6 class="mb-4"></h6>
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                                        <?php
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                                        include("db.php");
+                                        $empid=$_GET['emp_id'];
+                                        $SQL2='SELECT a.EMP_ID, a.NAME, a.EMAIL, a.PHONE, b.USER_NAME 
+                                            FROM os_employees a LEFT JOIN os_users b ON a.USER_ID = b.USER_ID WHERE  a.EMP_ID ='.$empid;
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                                        $exeSQL2=mysqli_query($conn, $SQL2) or die (mysqli_error($conn));
+                                        $row = mysqli_fetch_array($exeSQL2);
 
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
+                                        echo '<form class="custom-form profile-form" action="#" method="post" role="form">';
+                                        echo '<label>Employee Name</label>';
+                                        echo '<input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="" value='.$row['NAME'].'>';
+                                        echo '<label>Mobile NUmber</label>';
+                                        echo '<input class="form-control" type="text" name="profile-mobile" id="profile-mobile" placeholder="" value='.$row['PHONE'].'>';
+                                        echo '<label>Email Address</label>';
+                                        echo '<input class="form-control" type="email" name="profile-email" id="profile-email" placeholder="" value='.$row['EMAIL'].'>';
+                                        echo '<hr>';
+                                        echo '<label>Username</label>';
+                                        echo '<input class="form-control" type="text" name="profile-username" id="profile-username" placeholder=""value='.$row['USER_NAME'].'>';
+                                            
+                                        ?>
+                                            <div class="d-flex">
+                                                <button type="button" class="form-control me-3">
+                                                    Discard Changes
+                                                </button>
+                                                <button type="submit" class="form-control ms-2">
+                                                    Update Employee
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
-
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
+                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-12">
-                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/products/malu_murukku.jpg" class="e img-fluid" alt="">
 
-                                    <a href="edit_product.php" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
-
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <a href="product_view.php">
-                                    <p class="d-flex flex-wrap mb-2 text-center">
-                                        <strong>Mullu Murukulu</strong>
-                                        <hr>
-                                        2400 LKR
-                                    </p></a>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     
 
@@ -209,11 +183,7 @@
             </div>
         </div>
 
-        <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/apexcharts.min.js"></script>
-        <script src="js/custom.js"></script>
 
+    
     </body>
 </html>

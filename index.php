@@ -146,7 +146,7 @@
                                             </span>
                                         </p>
 
-                                        <p class="d-flex flex-wrap">
+                                        <p class="d-flex flex-wrap mb-2">
                                             <strong>Username:</strong>
 
                                             <span>Thilina350</span>
