@@ -134,6 +134,43 @@
                                         $exeSQL2=mysqli_query($conn, $SQL2) or die (mysqli_error($conn));
                                         $row = mysqli_fetch_array($exeSQL2);
 
+                                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                            $name = $_POST["profile-name"];
+                                            $mobile = $_POST["profile-mobile"];
+                                            $email = $_POST["profile-email"];
+                                            $username = $_POST["profile-username"];
+                                            
+                                            $SQL3 = "UPDATE os_employees 
+                                                     SET NAME = ?, PHONE = ?, email = ?
+                                                     WHERE EMP_ID = ?";
+                                            
+                                            $stmt = $conn->prepare($SQL3);
+                                            $stmt->bind_param("sssi", $name, $mobile, $email, $empid);
+                                            $stmt->execute();
+
+
+                                            $SQL5 = "SELECT USER_ID FROM os_employees WHERE emp_id =".$empid ;
+                                            $exeSQL5=mysqli_query($conn, $SQL5) or die (mysqli_error($conn));
+                                            $row1 = mysqli_fetch_array($exeSQL5);
+                                            $userid = $row1["USER_ID"];
+
+                                            $SQL4 = "UPDATE os_users
+                                                     SET user_name = ?
+                                                     WHERE USER_ID = ?";
+                                            
+                                            $stmt2 = $conn->prepare($SQL4);
+                                            $stmt2->bind_param("si", $username, $userid);
+                                            $stmt2->execute();
+
+                                            
+
+                                            echo '<div class="alert alert-success" role="alert">
+                                                                Update Succesfully.
+                                                            </div>';
+                                            exit;
+                                            
+                                        }
+                                        
                                         echo '<form class="custom-form profile-form" action="#" method="post" role="form">';
                                         echo '<label>Employee Name</label>';
                                         echo '<input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="" value='.$row['NAME'].'>';
@@ -145,15 +182,22 @@
                                         echo '<label>Username</label>';
                                         echo '<input class="form-control" type="text" name="profile-username" id="profile-username" placeholder=""value='.$row['USER_NAME'].'>';
                                             
-                                        ?>
-                                            <div class="d-flex">
-                                                <button type="button" class="form-control me-3">
-                                                    Discard Changes
-                                                </button>
-                                                <button type="submit" class="form-control ms-2">
-                                                    Update Employee
-                                                </button>
-                                            </div>
+                                       
+                                            echo '<div class="d-flex">';
+                                            echo  '<a href="employees.php" class="d-flex" >';
+                                            echo  '<button type="button" class="form-control me-3" >';
+                                                     
+                                                    echo "Cancel";
+                                                echo "</button>";
+                                                echo "</a>";
+
+                                                echo '<a href="employees.php" class="d-flex" >';
+                                                echo '<button type="submit" class="form-control ms-2">';
+                                                    echo 'Update Employee';
+                                                echo '</button>';
+                                                echo '</a>';
+                                            echo '</div>';
+                                            ?>
                                         </form>
                                     </div>
 
